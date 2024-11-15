@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parlez-vous le morse ?</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Parlez-vous le morse ?</h1>
+    
+    <div id="LatinMorseContainer"> 
+        <h2> Latin > Morse </h2>
+        <div>Entrez un mot avec l'alphabet latin:</div>
+        <input type="text" id="LatinWord" />
+        <button id="OkLatinButton" onclick="getValue;">OK</button>
+        <div>En Morse :</div>
+        <div id="MorseResult"> </div>
+
+    </div>
+
+    <div id="MorseLatinContainer"> 
+        <h2> Morse > Latin </h2>
+        <div>Entrez un mot en morse :</div>
+        <input type="text" id="MorseWord" />
+        <button id="OkMorseButton" onclick="getValue;">OK</button>
+        <div>En latin :</div>
+        <div id="LatinResult"> </div>
+
+    </div>
+
+</body>
+</html>

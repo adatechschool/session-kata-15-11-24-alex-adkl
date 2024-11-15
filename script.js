@@ -1,4 +1,10 @@
-let wordArray = [""];
+// let wordArray = [""];
+// let morseArray = [];
+
+// const latinWord = document.getElementById("latinWord")
+// const morseResult = document.getElementById("morseResult")
+// const latinButton = document.getElementById("OkLatinButton")
+// let latinInput = document.getElementById("LatinWord").value
 
 const latinToMorse = {
 	'A':'.-',
@@ -26,21 +32,72 @@ const latinToMorse = {
 	'W':'.--',
 	'X':'-..-',
 	'Y':'-.--',
-	'Z':'--..'
+	'Z':'--..',
+    ' ': '  '
+}
+
+const morseToLatin = {
+    '-': "T",
+    '--': "M",
+    '---': "O",
+    '--.': "G",
+    '--.-': "Q",
+    '--..': "Z",
+    '-.': "N",
+    '-.-': "K",
+    '-.--': "Y",
+    '-.-.': "C",
+    '-..': "D",
+    '-..-': "X",
+    '-...': "B",
+    '.': "E",
+    '.-': "A",
+    '.--': "W",
+    '.---': "J",
+    '.--.': "P",
+    '.-.': "R",
+    '.-..': "L",
+    '..': "I",
+    '..-': "U",
+    '..-.': "F",
+    '...': "S",
+    '...-': "V",
+    '....': "H",
+    '  ': "/"
 }
 
 function getLatinCharacterList(text){
-   return (text.split(""))
+   return (text.split(""));
 }
 
 function translateLatinCharacter(character){
-    console.log(latinToMorse[character])
+    return(latinToMorse[character]);
 }
 
 function encode(text){
-    wordArray = getLatinCharacterList(text)
-    wordArray.forEach((element) => translateLatinCharacter(element)) 
+    let wordArray = getLatinCharacterList(text);
+    let resultMorse = " ";
+    wordArray.forEach((element) => resultMorse += translateLatinCharacter(element)); 
+    console.log(resultMorse);
+    // morseResult.innerText = resultMorse
+}
+
+function getMorseCharacterList(text){
+    return(text.split(" "));
+}
+ 
+function translateMorseCharacter(character){
+    return(morseToLatin[character]);
+}
+ 
+function decode(text){
+    let morseArray = getMorseCharacterList(text);
+    let resultLatin = "";
+    morseArray.forEach((element) => resultLatin += translateMorseCharacter(element)); 
+    console.log(resultLatin);
 }
 
 
-encode("HELLOWORLD")
+encode("HELLO WORLD")
+decode(".- -... -.-.")
+decode(". ... ... .- .. . ... ... .- ..")
